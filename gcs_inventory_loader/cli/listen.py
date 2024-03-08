@@ -90,8 +90,8 @@ def listen_command() -> None:
                 LOG.debug("No messages in {} seconds, flushing rows (if any).".
                           format(timeout))
                 output.flush()
-            except Exception:
-                LOG.info("Quitting...")
+            except Exception as e:
+                LOG.error(f"An exception occured: {e}\nShutting Down.")
                 break
 
 
